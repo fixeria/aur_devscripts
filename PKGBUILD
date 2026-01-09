@@ -6,8 +6,8 @@
 # Contributor: JD Horelick <jdhore1@gmail.com>
 
 pkgname=devscripts
-pkgver=2.25.29
-pkgrel=3
+pkgver=2.26.3
+pkgrel=1
 pkgdesc="Scripts to make the life of a Debian Package maintainer easier"
 arch=('i686' 'x86_64')
 url="https://tracker.debian.org/pkg/devscripts"
@@ -46,7 +46,7 @@ source=(
     "https://salsa.debian.org/debian/${pkgname}/-/archive/v${pkgver}/${pkgname}-v${pkgver}.tar.bz2"
     fixes.patch
 )
-sha256sums=('07b1efb2951fe5883eea300ba1dc6f2dfb49277d9665bcef367fb29feb8881ef'
+sha256sums=('2a1c7755757e43aa498174491b41f61db8be69d3ae22f55fd571a1c6b4c29ebe'
             'd6c57a87037b6f15c5130b6f40a909b9dc6f9414be5fd1628a1eddecfba4e4b2')
 
 prepare(){
