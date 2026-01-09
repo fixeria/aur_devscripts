@@ -1,11 +1,11 @@
 pkgbase = devscripts
 	pkgdesc = Scripts to make the life of a Debian Package maintainer easier
 	pkgver = 2.25.29
-	pkgrel = 2
+	pkgrel = 3
 	url = https://tracker.debian.org/pkg/devscripts
 	arch = i686
 	arch = x86_64
-	license = GPL2
+	license = GPL-2.0-or-later
 	makedepends = docbook-xsl
 	makedepends = bash-completion
 	makedepends = help2man

@@ -7,11 +7,11 @@
 
 pkgname=devscripts
 pkgver=2.25.29
-pkgrel=2
+pkgrel=3
 pkgdesc="Scripts to make the life of a Debian Package maintainer easier"
 arch=('i686' 'x86_64')
 url="https://tracker.debian.org/pkg/devscripts"
-license=('GPL2')
+license=('GPL-2.0-or-later')
 depends=('dpkg' 'wget' 'sed' 'perl' 'debianutils' 'debhelper'
          'perl-file-homedir' 'perl-timedate' 'sensible-utils')
 makedepends=(
