@@ -7,7 +7,7 @@
 
 pkgname=devscripts
 pkgver=2.25.29
-pkgrel=1
+pkgrel=2
 pkgdesc="Scripts to make the life of a Debian Package maintainer easier"
 arch=('i686' 'x86_64')
 url="https://tracker.debian.org/pkg/devscripts"
@@ -43,27 +43,14 @@ provides=(checkbashisms)
 conflicts=(checkbashisms)
 options=('!makeflags')
 source=(
-    "https://deb.debian.org/debian/pool/main/${pkgname:0:1}/${pkgname}/${pkgname}_${pkgver}.tar.xz"
+    "https://salsa.debian.org/debian/${pkgname}/-/archive/v${pkgver}/${pkgname}-v${pkgver}.tar.bz2"
     fixes.patch
 )
-sha256sums=('e52b411ccd2eb0c6617d28f8d8c63986fb8c2555d88bf785353e6d3105a3958d'
+sha256sums=('07b1efb2951fe5883eea300ba1dc6f2dfb49277d9665bcef367fb29feb8881ef'
             'd6c57a87037b6f15c5130b6f40a909b9dc6f9414be5fd1628a1eddecfba4e4b2')
 
 prepare(){
-    # Sometimes there is the version in the tarball, sometimes not.
-    # Ensure we always have the proper directory.
-    if [ ! -d "${pkgname}-${pkgver}" -a -d "${pkgname}" ]
-    then
-        ln -s "${pkgname}" "${pkgname}-${pkgver}"
-    fi
-
-    # Somehow they now have a "work" folder instead?
-    if [ ! -d "${pkgname}-${pkgver}" -a -d work ]
-    then
-        ln -s work "${pkgname}-${pkgver}"
-    fi
-
-    cd "${pkgname}-${pkgver}"
+    cd "${pkgname}-v${pkgver}"
     patch -p1 -i "$srcdir/fixes.patch"
 
     # Ensure the local folder is recognized as a package and used appropriately.
@@ -71,12 +58,12 @@ prepare(){
 }
 
 build() {
-    cd "${pkgname}-${pkgver}"
+    cd "${pkgname}-v${pkgver}"
     make
 }
 
 package() {
-    cd "${pkgname}-${pkgver}"
+    cd "${pkgname}-v${pkgver}"
     make DESTDIR="$pkgdir" install
 
     # Install the script manpages appropriately
